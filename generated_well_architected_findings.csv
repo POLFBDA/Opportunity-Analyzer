@@ -1,0 +1,6 @@
+﻿Serial number,Pillar,Question,Severity,Check Title,Check Description,Resource Type
+1,costOptimization,How do you decommission resources?,Informational,Unused EBS volumes must be removed,Identifying and removing unused Amazon EBS volumes to reduce costs.,Volume
+2,security,How do you securely operate your workload?,Informational,Ensure AWS IAM Policies Do Not Grant Assume Role Permission,Ensure AssumeRole permissions do not grant access across all services.,IAMRole
+3,sustainability,How do you take advantage of user behavior patterns to support your sustainability goals?,Low,Check for unassociated Network Interfaces,Identify and remove unassociated network interfaces to optimize resources.,NetworkInterface
+4,sustainability,How do you take advantage of user behavior patterns to support your sustainability goals?,Low,Unused Amazon Machine Images (AMIs) must be removed,Remove unused AMIs to avoid unnecessary costs and improve sustainability.,Image
+5,security,How do you manage permissions for people and machines?,Informational,S3 Bucket Should Not Allow List Actions,Ensure list actions are not permitted for all S3 bucket principals.,S3

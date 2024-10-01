@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "POLFB-Infrastructure"
+version = "0.1.0"
+description = "Dev Container for Infrastructure Repo"
+authors = ["Daniel Perez <polfbdp@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+boto3 = "^1.18.0"  # Specify the version of boto3 that you want
+
+# Add other dependencies as needed
+# flask = "^2.0.1"
+# numpy = "^1.21.2"
+
+[tool.poetry.dev-dependencies]
+# Development dependencies go here
+# pytest = "^6.2.4"
+pylint = "^2.11.1"  # Use the version you prefer
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

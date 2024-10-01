@@ -1,0 +1,47 @@
+{
+	"name": "aws-python-dev-env",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"mounts": [
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached",
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/OneDrive/Documents/FeedbackTracker,target=/mnt/feedback,type=bind"
+	],
+	"postStartCommand": "git secrets --register-aws",
+	// 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
+	// "features": {},
+	// 👇 Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [11434],  // Forward port 11434 from the container to the host
+	"runArgs": [
+		"--network", "host",   // Use this to allow access to host network (optional)
+		"-p", "11434:11434"    // Bind the port if necessary
+  	],
+	// 👇 Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "",
+	// 👇 Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"njpwerner.autodocstring",
+				"ms-python.pylint",
+				"ms-python.mypy-type-checker",
+				"ms-python.black-formatter",
+				"yzhang.markdown-all-in-one",
+				"amazonwebservices.aws-toolkit-vscode",
+				"thomascsd.vscode-readme-pattern",
+				"mhutchie.git-graph",
+				"eamodio.gitlens"
+			],
+			"settings": {
+				"[python]": {
+					"editor.defaultFormatter": "ms-python.black-formatter",
+					"editor.formatOnSave": true
+				},
+				"python.formatting.provider": "none"
+			}
+		}
+	}
+	// 👇 Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
