@@ -282,5 +282,127 @@
             "S3 Bucket Should Not Allow List Actions": 1
         },
         "timestamp": "2024-10-01 21:42:07 PDT"
+    },
+    {
+        "filename": "generated_well_architected_findings.csv",
+        "total_findings": 24,
+        "pillar_counts": {
+            "security": 11,
+            "reliability": 4,
+            "costOptimization": 3,
+            "operationalExcellence": 3,
+            "sustainability": 2,
+            "performance": 1
+        },
+        "severity_counts": {
+            "Informational": 9,
+            "Low": 8,
+            "Medium": 4,
+            "High": 3
+        },
+        "check_title_counts": {
+            "Encrypt Amazon Machine Images (AMIs)": 3,
+            "Unused Amazon Machine Images (AMIs) must be removed": 2,
+            "Unused EBS volumes must be removed": 2,
+            "Detect and Manage Configuration Drift in CloudFormation": 2,
+            "Ensure AWS IAM Policies Do Not Grant Assume Role Permission": 1,
+            "Check for unassociated Network Interfaces": 1,
+            "S3 Bucket Should Not Allow List Actions": 1,
+            "EC2 IMDSv2 enabled": 1,
+            "Ensure Provisioned IOPS volumes are attached": 1,
+            "Static website hosting is disabled": 1,
+            "Ensure log metric filter for AWS Config changes": 1,
+            "Enable EBS backup": 1,
+            "Encrypt EBS Snapshots": 1,
+            "Public CloudTrail Buckets": 1,
+            "Ensure log metric filter for VPC changes": 1,
+            "S3 object versioning must be enabled": 1,
+            "Outdated EC2 AMIs": 1,
+            "Ensure log metric filter for IAM policy changes": 1,
+            "Ensure IAM Policies restrict Assume Role": 1
+        },
+        "timestamp": "2024-10-02 11:37:45 PDT"
+    },
+    {
+        "filename": "generated_well_architected_findings_old.csv",
+        "total_findings": 5,
+        "pillar_counts": {
+            "security": 2,
+            "sustainability": 2,
+            "costOptimization": 1
+        },
+        "severity_counts": {
+            "Informational": 3,
+            "Low": 2
+        },
+        "check_title_counts": {
+            "Unused EBS volumes must be removed": 1,
+            "Ensure AWS IAM Policies Do Not Grant Assume Role Permission": 1,
+            "Check for unassociated Network Interfaces": 1,
+            "Unused Amazon Machine Images (AMIs) must be removed": 1,
+            "S3 Bucket Should Not Allow List Actions": 1
+        },
+        "timestamp": "2024-10-02 11:37:45 PDT"
+    },
+    {
+        "filename": "generated_well_architected_findings.csv",
+        "total_findings": 24,
+        "pillar_counts": {
+            "security": 11,
+            "reliability": 4,
+            "costOptimization": 3,
+            "operationalExcellence": 3,
+            "sustainability": 2,
+            "performance": 1
+        },
+        "severity_counts": {
+            "Informational": 9,
+            "Low": 8,
+            "Medium": 4,
+            "High": 3
+        },
+        "check_title_counts": {
+            "Encrypt Amazon Machine Images (AMIs)": 3,
+            "Unused Amazon Machine Images (AMIs) must be removed": 2,
+            "Unused EBS volumes must be removed": 2,
+            "Detect and Manage Configuration Drift in CloudFormation": 2,
+            "Ensure AWS IAM Policies Do Not Grant Assume Role Permission": 1,
+            "Check for unassociated Network Interfaces": 1,
+            "S3 Bucket Should Not Allow List Actions": 1,
+            "EC2 IMDSv2 enabled": 1,
+            "Ensure Provisioned IOPS volumes are attached": 1,
+            "Static website hosting is disabled": 1,
+            "Ensure log metric filter for AWS Config changes": 1,
+            "Enable EBS backup": 1,
+            "Encrypt EBS Snapshots": 1,
+            "Public CloudTrail Buckets": 1,
+            "Ensure log metric filter for VPC changes": 1,
+            "S3 object versioning must be enabled": 1,
+            "Outdated EC2 AMIs": 1,
+            "Ensure log metric filter for IAM policy changes": 1,
+            "Ensure IAM Policies restrict Assume Role": 1
+        },
+        "timestamp": "2024-10-02 11:49:31 PDT"
+    },
+    {
+        "filename": "generated_well_architected_findings_old.csv",
+        "total_findings": 5,
+        "pillar_counts": {
+            "security": 2,
+            "sustainability": 2,
+            "costOptimization": 1
+        },
+        "severity_counts": {
+            "Informational": 3,
+            "Low": 2
+        },
+        "check_title_counts": {
+            "Unused EBS volumes must be removed": 1,
+            "Ensure AWS IAM Policies Do Not Grant Assume Role Permission": 1,
+            "Check for unassociated Network Interfaces": 1,
+            "Unused Amazon Machine Images (AMIs) must be removed": 1,
+            "S3 Bucket Should Not Allow List Actions": 1
+        },
+        "timestamp": "2024-10-02 11:49:31 PDT"
     }
 ]
