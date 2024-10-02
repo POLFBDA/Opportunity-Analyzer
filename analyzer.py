@@ -34,7 +34,7 @@ def analyze_finding_with_ollama(row):
     url = f"{ollama_host}/generate"
     headers = {"Content-Type": "application/json"}
     payload = {
-        "model": "llama3.1:8b",  # Adjust this to the model you're using locally
+        "model": "llama3.1:latest",  # Adjust this to the model you're using locally
         "prompt": analysis_prompt,
         "stream": False,  # Ensure streaming is disabled
     }

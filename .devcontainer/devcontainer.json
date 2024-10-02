@@ -4,8 +4,8 @@
 		"dockerfile": "Dockerfile"
 	},
 	"mounts": [
-		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached",
-		"source=${localEnv:HOME}${localEnv:USERPROFILE}/OneDrive/Documents/FeedbackTracker,target=/mnt/feedback,type=bind"
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached"
+		// "source=${localEnv:HOME}${localEnv:USERPROFILE}/OneDrive/Documents/FeedbackTracker,target=/mnt/feedback,type=bind"
 	],
 	"postStartCommand": "git secrets --register-aws",
 	// 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
