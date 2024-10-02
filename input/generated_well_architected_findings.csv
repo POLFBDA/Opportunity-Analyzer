@@ -1,0 +1,25 @@
+﻿Serial number,Pillar,Question,Severity,Check Title,Check Description,Resource Type
+1,costOptimization,How do you decommission resources?,Informational,Unused EBS volumes must be removed,Identifying and removing unused Amazon EBS volumes to reduce costs.,Volume
+2,security,How do you securely operate your workload?,Informational,Ensure AWS IAM Policies Do Not Grant Assume Role Permission,Ensure AssumeRole permissions do not grant access across all services.,IAMRole
+3,sustainability,How do you take advantage of user behavior patterns to support your sustainability goals?,Low,Check for unassociated Network Interfaces,Identify and remove unassociated network interfaces to optimize resources.,NetworkInterface
+4,sustainability,How do you take advantage of user behavior patterns to support your sustainability goals?,Low,Unused Amazon Machine Images (AMIs) must be removed,Remove unused AMIs to avoid unnecessary costs and improve sustainability.,Image
+5,security,How do you manage permissions for people and machines?,Informational,S3 Bucket Should Not Allow List Actions,Ensure list actions are not permitted for all S3 bucket principals.,S3
+6,security,How do you protect your data at rest?,High,Encrypt Amazon Machine Images (AMIs),Ensure AMIs are encrypted to protect sensitive data.,Image
+7,security,How do you protect your compute resources?,Medium,EC2 IMDSv2 enabled,Ensure IMDSv2 is enabled for enhanced EC2 instance security.,Instance
+8,performance,How do you select the best performing architecture?,Low,Ensure Provisioned IOPS volumes are attached,Provisioned IOPS volumes must be attached to optimize performance.,Volume
+9,security,How do you protect your data at rest?,High,Encrypt Amazon Machine Images (AMIs),Ensure Amazon Machine Images are encrypted for data protection.,Image
+10,costOptimization,How do you decommission resources?,Informational,Unused EBS volumes must be removed,Remove unused EBS volumes to avoid additional costs.,Volume
+11,security,How do you protect your compute resources?,Informational,Static website hosting is disabled,Ensure static website hosting is disabled on sensitive S3 buckets.,S3
+12,operationalExcellence,How do you manage workload and operations events?,Low,Detect and Manage Configuration Drift in CloudFormation,Monitor CloudFormation stacks for configuration drift.,Cfn
+13,security,How do you detect and investigate security events?,Low,Ensure log metric filter for AWS Config changes,Ensure log metric filters exist for AWS Config changes.,LogMetricFilter
+14,reliability,How do you back up data?,Medium,Enable EBS backup,Ensure EBS volumes have backups enabled for recovery.,Volume
+15,security,How do you protect your data at rest?,Medium,Encrypt EBS Snapshots,Ensure EBS snapshots are encrypted to prevent unauthorized access.,Snapshot
+16,security,How do you protect your data at rest?,High,Encrypt Amazon Machine Images (AMIs),Encrypt AMIs to ensure compliance with security standards.,Image
+17,reliability,How do you monitor workload resources?,Informational,Public CloudTrail Buckets,Ensure CloudTrail buckets are not publicly accessible.,CloudTrail
+18,reliability,How do you monitor workload resources?,Low,Ensure log metric filter for VPC changes,Ensure VPC changes are monitored through log metric filters.,LogMetricFilter
+19,costOptimization,How do you decommission resources?,Low,Unused Amazon Machine Images (AMIs) must be removed,Remove unused AMIs to reduce cloud spending and resource waste.,Image
+20,security,How do you protect your data at rest?,Informational,S3 object versioning must be enabled,Ensure S3 object versioning is enabled for data recovery.,S3
+21,operationalExcellence,How do you manage workload and operations events?,Low,Detect and Manage Configuration Drift in CloudFormation,Monitor configuration drift in CloudFormation stacks.,Cfn
+22,operationalExcellence,How do you manage workload and operations events?,Informational,Outdated EC2 AMIs,Ensure EC2 AMIs are up to date for improved security and performance.,Image
+23,reliability,How do you back up data?,Medium,Ensure log metric filter for IAM policy changes,Ensure log metric filters for IAM policy changes exist to enhance security.,LogMetricFilter
+24,security,How do you securely operate your workload?,Informational,Ensure IAM Policies restrict Assume Role,Ensure IAM policies restrict AssumeRole permissions for specific services.,IAMRole
