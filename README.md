@@ -88,40 +88,61 @@ Prepare a CSV file named `generated_well_architected_findings.csv` with the foll
 - `Check Description`
 - `Resource Type`
 
-### 3. Model Differences Between Windows and macOS
+### 3. Ollama Model Selection
 
-**On Windows:**
-- Use the model name `llama3.1:8b` when sending requests to Ollama.
-
-**On macOS:**
-- Use the model name `llama3.1:latest` when sending requests to Ollama.
-
-The model name can be set dynamically based on your operating system in your Python script.
-
-### 4. Modify the Python Script
-
-The Python script reads a CSV file, processes each finding, and sends a request to the Ollama server to analyze the finding. You may need to set the correct model name based on your environment.
-
-Here’s a snippet from the Python script that handles this:
+You can use different Ollama models based on your needs. Here are some example models that you can use by adjusting the following part of the Python script:
 
 ```python
-import platform
-
-def get_model_name():
-    if platform.system() == "Windows":
-        return "llama3.1:8b"
-    elif platform.system() == "Darwin":  # macOS
-        return "llama3.1:latest"
-    else:
-        return "llama3.1:8b"  # Default for other platforms
+# Interact with the local Ollama instance
+url = f"{ollama_host}/generate"
+headers = {"Content-Type": "application/json"}
+payload = {
+    "model": "gemma2:2b",  # Adjust this to the model you're using locally
+    "prompt": analysis_prompt,
+    "stream": False,  # Ensure streaming is disabled
+}
 ```
 
-### 5. Run the Python Script
+#### Example Models:
+- **gemma2:2b**: A general-purpose model for analyzing findings.
+- **llama3.1:8b**: A larger model, potentially more accurate but resource-intensive.
+- **llama3.1:latest**: The latest version of the llama model for the best current performance.
+- **gemma2:13b**: A more advanced version of gemma2, useful for complex analysis.
+
+You can replace the `"model"` field in the `payload` dictionary with any of these model names to suit your needs.
+
+### 4. Run the Python Script
 
 Make sure Ollama is running on your local machine, then run the Python script:
+
 ```bash
-python analyzer.py
+python analyzer.py [OPTIONS]
 ```
+
+### 5. Available Flags for the Python Script
+
+The script accepts the following optional flags:
+
+- `--update-check-ids`: Specify one or more check IDs to update in the cache.
+  ```bash
+  python analyzer.py --update-check-ids 1 2 3
+  ```
+- `--additional-info`: Provide additional information to append to the prompt when updating suggestions.
+  ```bash
+  python analyzer.py --update-check-ids 1 --additional-info "New compliance requirements"
+  ```
+- `--input-folder`: Specify a custom folder containing input CSV files. Default is `input`.
+  ```bash
+  python analyzer.py --input-folder custom_input_folder
+  ```
+- `--output-folder`: Specify a custom folder to save output files. Default is `output`.
+  ```bash
+  python analyzer.py --output-folder custom_output_folder
+  ```
+- `--summary-folder`: Specify a custom folder to save summary files. Default is `summary`.
+  ```bash
+  python analyzer.py --summary-folder custom_summary_folder
+  ```
 
 ### 6. Output
 
@@ -129,6 +150,8 @@ The script will:
 - Read the `generated_well_architected_findings.csv` file.
 - Send each finding to Ollama for analysis.
 - Save the suggestions in a new column named `Elastic Engineering Suggestions` in a new CSV file named `findings_with_suggestions.csv`.
+- Update the `ollama_suggestion_cache.json` file with new or refreshed suggestions to maintain a record of previously processed findings.
+- Generate summary files for analyzed data and save them in JSON (`summary.json`) and CSV (`summary.csv`) formats in the specified summary folder.
 
 ---
 
@@ -146,7 +169,7 @@ To ensure that Ollama works as expected on Windows, make sure you set the follow
    ```
 
 ### On macOS:
-The model name and Ollama host setup differ slightly on macOS:
+To ensure that Ollama works as expected on macOS:
 1. Run Ollama:
    ```bash
    OLLAMA_HOST=0.0.0.0 ollama serve
@@ -165,6 +188,16 @@ The model name and Ollama host setup differ slightly on macOS:
   ```
 
 ---
+
+## Running Unit Tests
+
+Unit tests are stored in the `tests/` directory. To run the unit tests, use the following command from the root directory of the project:
+
+```bash
+python -m unittest discover -s tests
+```
+
+This command will automatically discover and execute all the unit tests in the `tests` folder, including the test for refreshing cache items (`test_cache_refresh.py`).
 
 ### Additional Notes:
 - **Docker Containers**: If you're using Docker, ensure that the container has access to the host's port `11434`.

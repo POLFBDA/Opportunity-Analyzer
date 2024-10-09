@@ -48,7 +48,7 @@ RUN curl https://pyenv.run | bash \
     && poetry config virtualenvs.in-project true
 
 # Install pylint
-RUN pip install pylint
+# RUN pip install pylint
 
 # Install dependecies for Opportunity Analyzer
 RUN pip install pandas
