@@ -112,12 +112,27 @@ def generate_summary(df, filename):
     pst = pytz.timezone("America/Los_Angeles")
     timestamp = datetime.now(pst).strftime("%Y-%m-%d %H:%M:%S %Z")
 
+    # Filter for failed checks only
+    failed_checks_df = df[df["Status"].str.lower() == "failed"]
+
+    # Group check titles by severity
+    check_titles_with_severity = (
+        failed_checks_df.groupby("Check Title")["Severity"].first().to_dict()
+    )
+
     summary = {
         "filename": filename,
         "total_findings": len(df),
-        "pillar_counts": df["Pillar"].value_counts().to_dict(),
-        "severity_counts": df["Severity"].value_counts().to_dict(),
-        "check_title_counts": df["Check Title"].value_counts().to_dict(),
+        "failed_findings": len(failed_checks_df),  # Count of failed findings
+        "failed_pillar_counts": failed_checks_df["Pillar"].value_counts().to_dict(),
+        "failed_severity_counts": failed_checks_df["Severity"].value_counts().to_dict(),
+        "failed_check_title_counts": {
+            title: {
+                "count": count,
+                "severity": check_titles_with_severity.get(title, "Unknown"),
+            }
+            for title, count in failed_checks_df["Check Title"].value_counts().items()
+        },
         "timestamp": timestamp,  # Add the timestamp here
     }
     logging.debug("Summary generated: %s", summary)
@@ -175,6 +190,8 @@ def save_summary_to_csv(summary, summary_file):
         new_summary_df.to_csv(summary_file, index=False)
     else:
         existing_summary = pd.read_csv(summary_file)
+
+        # Check if an entry for the filename already exists in the CSV
         if summary["filename"] not in existing_summary["filename"].values:
             combined_summary = pd.concat(
                 [existing_summary, new_summary_df], ignore_index=True
@@ -182,11 +199,19 @@ def save_summary_to_csv(summary, summary_file):
             combined_summary.to_csv(summary_file, index=False)
             logging.info("Added summary for file %s", summary["filename"])
         else:
-            logging.info("File %s already exists in the summary.", summary["filename"])
+            # Update the existing entry in the DataFrame
+            existing_summary.loc[
+                existing_summary["filename"] == summary["filename"],
+                new_summary_df.columns,
+            ] = new_summary_df.values[0]
+            existing_summary.to_csv(summary_file, index=False)
+            logging.info("Updated summary for file %s", summary["filename"])
 
 
 # Process all CSV files in the input folder and generate suggestions and summaries
-def process_input_files(cache, input_folder, output_folder, summary_folder):
+def process_input_files(
+    cache, input_folder, output_folder, summary_folder, save_interval=10
+):
     logging.debug("Processing input files in folder: %s", input_folder)
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -214,83 +239,104 @@ def process_input_files(cache, input_folder, output_folder, summary_folder):
                 # Mark the file as processed
                 processed_files.add(entry.name)
 
-                # Load the CSV data
+                # Load the CSV data, specifying that the header is in row 9 (index 8)
                 logging.debug("Loading CSV data from %s", input_path)
-                df = pd.read_csv(input_path)
+                try:
+                    df = pd.read_csv(input_path, header=8)
 
-                # Generate suggestions for each finding
-                suggestions = []
-                for index, row in df.iterrows():
-                    check_title = row["Check Title"]
+                    required_columns = [
+                        "Serial number",
+                        "Pillar",
+                        "Severity",
+                        "Status",
+                        "Resource ID",
+                        "Resource Name",
+                        "Resource Type",
+                        "Question",
+                        "Check Title",
+                        "Check Description",
+                        "Account Name",
+                        "Account ID",
+                        "Region",
+                    ]
 
-                    # Check if suggestion exists in cache
-                    if check_title in cache:
-                        suggestions.append(cache[check_title]["suggestion"])
-                        logging.info(
-                            f"Using cached suggestion for '{check_title}' (Check ID: {cache[check_title]['check_id']})"
+                    # Check if all required columns are present
+                    if not all(col in df.columns for col in required_columns):
+                        missing_cols = [
+                            col for col in required_columns if col not in df.columns
+                        ]
+                        logging.warning(
+                            f"Missing required columns {missing_cols} in file {input_path}. Skipping file."
                         )
-                    else:
-                        # Analyze and store in cache
-                        suggestion = analyze_finding_with_ollama(row, next_check_id)
-                        suggestions.append(suggestion)
-                        cache[check_title] = {
-                            "check_id": str(next_check_id),
-                            "Pillar": row["Pillar"],
-                            "Question": row["Question"],
-                            "Severity": row["Severity"],
-                            "Check Title": check_title,
-                            "Check Description": row["Check Description"],
-                            "Resource Type": row["Resource Type"],
-                            "suggestion": suggestion,
-                        }
-                        next_check_id += 1  # Increment check ID
+                        continue
 
-                # Get the current timestamp to append to the output file name
-                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                    # Track the number of new suggestions generated
+                    new_suggestions_count = 0
 
-                # Save the new CSV with suggestions
-                output_filename = f"{entry.name.split('.')[0]}_{timestamp}_output.csv"
-                output_path = os.path.join(output_folder, output_filename)
-                df["Elastic Engineering Suggestions"] = suggestions
-                df.to_csv(output_path, index=False, encoding="utf-8-sig")
-                logging.info(f"CSV file saved with suggestions at {output_path}")
+                    # Process each finding in the CSV
+                    suggestions = []
+                    for index, row in df.iterrows():
+                        check_title = row["Check Title"]
 
-                # Generate and save summary for the file (without suggestions)
-                summary = generate_summary(df, entry.name)
+                        # Check if suggestion exists in cache
+                        if check_title in cache:
+                            suggestions.append(cache[check_title]["suggestion"])
+                            logging.info(
+                                f"Using cached suggestion for '{check_title}' (Check ID: {cache[check_title]['check_id']})"
+                            )
+                        else:
+                            # Analyze and store in cache
+                            suggestion = analyze_finding_with_ollama(row, next_check_id)
+                            suggestions.append(suggestion)
+                            cache[check_title] = {
+                                "check_id": str(next_check_id),
+                                "Pillar": row["Pillar"],
+                                "Question": row["Question"],
+                                "Severity": row["Severity"],
+                                "Status": row["Status"],
+                                "Resource Type": row["Resource Type"],
+                                "Check Title": check_title,
+                                "Check Description": row["Check Description"],
+                                "suggestion": suggestion,
+                            }
+                            next_check_id += 1  # Increment check ID
+                            new_suggestions_count += (
+                                1  # Increment new suggestions counter
+                            )
 
-                # Save summary as both JSON and CSV
-                save_summary_to_json(
-                    summary, os.path.join(summary_folder, "summary.json")
-                )
-                save_summary_to_csv(
-                    summary, os.path.join(summary_folder, "summary.csv")
-                )
+                        # Save the cache and log message after every 10 new suggestions
+                        if new_suggestions_count >= 10:
+                            save_cache(cache, cache_file)
+                            logging.info(
+                                f"Cache saved after {new_suggestions_count} new suggestions (total findings processed: {index + 1})."
+                            )
+                            new_suggestions_count = 0  # Reset the counter
 
+                    # Get the current timestamp to append to the output file name
+                    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-# Update specific entries in the cache based on check_id
-def update_cache_for_check_ids(
-    update_check_ids, suggestion_cache, additional_info=None
-):
-    for check_id in update_check_ids:
-        # Find the corresponding check title based on check_id
-        cache_entry = None
-        for title, entry in suggestion_cache.items():
-            if entry.get("check_id") == str(check_id):
-                cache_entry = entry
-                break
+                    # Save the new CSV with suggestions
+                    output_filename = (
+                        f"{entry.name.split('.')[0]}_{timestamp}_output.csv"
+                    )
+                    output_path = os.path.join(output_folder, output_filename)
+                    df["Elastic Engineering Suggestions"] = suggestions
+                    df.to_csv(output_path, index=False, encoding="utf-8-sig")
+                    logging.info(f"CSV file saved with suggestions at {output_path}")
 
-        if cache_entry:
-            logging.info(f"Updating suggestion for Check ID: {check_id}")
-            new_suggestion = analyze_finding_with_ollama(
-                cache_entry, check_id, refresh=True, additional_info=additional_info
-            )
-            cache_entry["suggestion"] = new_suggestion
-        else:
-            logging.warning(
-                f"Check ID %s not found in cache. Skipping update.", check_id
-            )
+                    # Generate and save summary for the file (without suggestions)
+                    summary = generate_summary(df, entry.name)
 
-    return suggestion_cache
+                    # Save summary as both JSON and CSV
+                    save_summary_to_json(
+                        summary, os.path.join(summary_folder, "summary.json")
+                    )
+                    save_summary_to_csv(
+                        summary, os.path.join(summary_folder, "summary.csv")
+                    )
+
+                except Exception as e:
+                    logging.error(f"Error processing file {input_path}: {e}")
 
 
 # Main function to run the program

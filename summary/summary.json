@@ -1,63 +1,1366 @@
 [
     {
-        "filename": "generated_well_architected_findings.csv",
-        "total_findings": 24,
-        "pillar_counts": {
-            "security": 11,
-            "reliability": 4,
-            "costOptimization": 3,
-            "operationalExcellence": 3,
-            "sustainability": 2,
-            "performance": 1
+        "filename": "Customer_Name_(1293842)_DAY2_Well_Architected_Review___Findings_Report___Payless_Scan_Non_Prod_June_2024_08_Jul_24_16_00_14 - Copy.csv",
+        "total_findings": 4687,
+        "failed_findings": 1750,
+        "failed_pillar_counts": {
+            "security": 952,
+            "reliability": 268,
+            "costOptimization": 229,
+            "sustainability": 169,
+            "operationalExcellence": 97,
+            "performance": 35
         },
-        "severity_counts": {
-            "Informational": 9,
-            "Low": 8,
-            "Medium": 4,
-            "High": 3
+        "failed_severity_counts": {
+            "Low": 697,
+            "Medium": 678,
+            "High": 354,
+            "Critical": 21
         },
-        "check_title_counts": {
-            "Encrypt Amazon Machine Images (AMIs)": 3,
-            "Unused Amazon Machine Images (AMIs) must be removed": 2,
-            "Unused EBS volumes must be removed": 2,
-            "Detect and Manage Configuration Drift in CloudFormation": 2,
-            "Ensure AWS IAM Policies Do Not Grant Assume Role Permission": 1,
-            "Check for unassociated Network Interfaces": 1,
-            "S3 Bucket Should Not Allow List Actions": 1,
-            "EC2 IMDSv2 enabled": 1,
-            "Ensure Provisioned IOPS volumes are attached": 1,
-            "Static website hosting is disabled": 1,
-            "Ensure log metric filter for AWS Config changes": 1,
-            "Enable EBS backup": 1,
-            "Encrypt EBS Snapshots": 1,
-            "Public CloudTrail Buckets": 1,
-            "Ensure log metric filter for VPC changes": 1,
-            "S3 object versioning must be enabled": 1,
-            "Outdated EC2 AMIs": 1,
-            "Ensure log metric filter for IAM policy changes": 1,
-            "Ensure IAM Policies restrict Assume Role": 1
+        "failed_check_title_counts": {
+            "CloudWatch Logs Retention Configuration": {
+                "count": 156,
+                "severity": "Medium"
+            },
+            "Unused Amazon Machine Images (AMIs) must be removed.": {
+                "count": 124,
+                "severity": "Low"
+            },
+            "S3 bucket should have server access logging enabled.": {
+                "count": 98,
+                "severity": "Medium"
+            },
+            "Ensure AWS IAM Policies Allow Only the Required Privileges for Each Role": {
+                "count": 83,
+                "severity": "High"
+            },
+            "Check for EBS Old Snapshots older than 30 days.": {
+                "count": 70,
+                "severity": "Low"
+            },
+            "S3 object versioning provides an extra layer of data protection and/ or data retention, versioning enables you to recover and preserve deleted objects from S3 bucket. This check verifies if versioning is enabled for your S3 buckets.": {
+                "count": 66,
+                "severity": "Low"
+            },
+            "Restrict security groups with all outbound traffic open to the public": {
+                "count": 55,
+                "severity": "Medium"
+            },
+            "Detect and Manage Configuration Drift in CloudFormation Stacks": {
+                "count": 53,
+                "severity": "Low"
+            },
+            "Ensure MFA Delete is Enabled on S3 Buckets": {
+                "count": 49,
+                "severity": "Low"
+            },
+            "S3 bucket should allow only HTTPS requests.": {
+                "count": 47,
+                "severity": "Medium"
+            },
+            "Enable S3 bucket lifecycle policies": {
+                "count": 41,
+                "severity": "Low"
+            },
+            "Secure Lambda Execution with Virtual Private Cloud (VPC) for Isolation": {
+                "count": 40,
+                "severity": "Low"
+            },
+            "SNS Topic Server Side Encryption (SSE).": {
+                "count": 37,
+                "severity": "High"
+            },
+            "S3 Bucket Policy not Configured.": {
+                "count": 36,
+                "severity": "Medium"
+            },
+            "Security Groups accept global traffic only from ports 80 and 443": {
+                "count": 32,
+                "severity": "High"
+            },
+            "Invocation Error Monitoring for Functions": {
+                "count": 29,
+                "severity": "Low"
+            },
+            "Outdated EC2 AMIs": {
+                "count": 28,
+                "severity": "Low"
+            },
+            "Enforce Customer-Managed Key Encryption for Lambda Environment Variables": {
+                "count": 26,
+                "severity": "High"
+            },
+            "Timeout Error Monitoring for Functions.": {
+                "count": 25,
+                "severity": "Low"
+            },
+            "Ensure Provisioned IOPS volumes have been attached to instances for optimal performance efficiency": {
+                "count": 23,
+                "severity": "Low"
+            },
+            "Enable EC2 Instances backup": {
+                "count": 22,
+                "severity": "Medium"
+            },
+            "Restrict access to remote server ports (tcp3389 and tcp22)": {
+                "count": 22,
+                "severity": "High"
+            },
+            "Delete Unused Lambda Functions": {
+                "count": 21,
+                "severity": "Low"
+            },
+            "Enable EBS backup": {
+                "count": 21,
+                "severity": "Medium"
+            },
+            "Instance in autoscaling group": {
+                "count": 18,
+                "severity": "Low"
+            },
+            "EBS volumes must be encrypted.": {
+                "count": 17,
+                "severity": "Medium"
+            },
+            "EC2 IMDSv2 enabled": {
+                "count": 15,
+                "severity": "Medium"
+            },
+            "Secrets Manager Secrets Should Have Automatic Rotation Enabled": {
+                "count": 13,
+                "severity": "Critical"
+            },
+            "Restrict access to RDP port (tcp3389)": {
+                "count": 12,
+                "severity": "High"
+            },
+            "Ensure Public IP Address Assignment for subnets is disabled": {
+                "count": 12,
+                "severity": "Medium"
+            },
+            "Restrict external principal access in Resource Access Manager": {
+                "count": 11,
+                "severity": "Medium"
+            },
+            "Enable Access logs when using ELBv2.": {
+                "count": 10,
+                "severity": "High"
+            },
+            "Enable Glue Crawler security configuration to encrypt CloudWatch logs": {
+                "count": 10,
+                "severity": "High"
+            },
+            "Use CloudWatch Dashboards": {
+                "count": 10,
+                "severity": "High"
+            },
+            "Unused IAM Credentials Should Be Removed": {
+                "count": 10,
+                "severity": "Medium"
+            },
+            "Successful SSM association": {
+                "count": 10,
+                "severity": "Low"
+            },
+            "Use Linux-Powered EC2 Instances": {
+                "count": 10,
+                "severity": "Low"
+            },
+            "Rotate Old Secrets": {
+                "count": 9,
+                "severity": "Medium"
+            },
+            "Ensure IAM Users Receive Permissions Only Through Groups": {
+                "count": 9,
+                "severity": "Medium"
+            },
+            "Enable Flow Logs for VPC Subnets": {
+                "count": 9,
+                "severity": "Medium"
+            },
+            "Use AWS Managed kubernetes Service (EKS)": {
+                "count": 8,
+                "severity": "High"
+            },
+            "Ensure elastic load balancers are using secure listeners.": {
+                "count": 8,
+                "severity": "High"
+            },
+            "Use AWS Managed Container Service (ECS)": {
+                "count": 8,
+                "severity": "High"
+            },
+            "IAM Users Should Have Multi-Factor Authentication (MFA) Enabled": {
+                "count": 8,
+                "severity": "Medium"
+            },
+            "Encrypt Amazon Machine Images (AMIs)": {
+                "count": 7,
+                "severity": "High"
+            },
+            "EBS snapshots must be encrypted.": {
+                "count": 7,
+                "severity": "Medium"
+            },
+            "Identify security groups which allow all traffic from the internet, the best practice is to exercise principle of least privilege": {
+                "count": 7,
+                "severity": "High"
+            },
+            "Ensure Amazon Lambda Functions Do Not Share the Same AWS IAM Execution Role": {
+                "count": 7,
+                "severity": "High"
+            },
+            "SNS topics should have active subscriptions": {
+                "count": 7,
+                "severity": "Medium"
+            },
+            "Ensure Credentials (with First Activated AccessKey) Unused for 90 Days or Greater Are Disabled": {
+                "count": 7,
+                "severity": "High"
+            },
+            "Enable CloudWatch logging for CodeBuild": {
+                "count": 6,
+                "severity": "Medium"
+            },
+            "Protect Elastic IPs with Shield Advanced": {
+                "count": 6,
+                "severity": "Medium"
+            },
+            "Ensure the Instance profile is attached to EC2 Instances": {
+                "count": 6,
+                "severity": "Medium"
+            },
+            "Use Amazon Data Lifecycle Manager": {
+                "count": 6,
+                "severity": "Medium"
+            },
+            "Check for public SNS Topics": {
+                "count": 6,
+                "severity": "High"
+            },
+            "EC2 Instances must not be associated with Elastic or Public IP Address.": {
+                "count": 5,
+                "severity": "Medium"
+            },
+            "Protect ELBv2s with AWS Shield Advanced": {
+                "count": 5,
+                "severity": "Medium"
+            },
+            "Ensure TLS 1.2 enforcement for all secure listeners": {
+                "count": 5,
+                "severity": "Medium"
+            },
+            "Enable ELBv2 Elastic Load Balancing Deletion Protection": {
+                "count": 5,
+                "severity": "Medium"
+            },
+            "Enable ELBv2 invalid HTTP header drop": {
+                "count": 5,
+                "severity": "Medium"
+            },
+            "Enable Amazon CloudWatch Internet Monitor": {
+                "count": 4,
+                "severity": "High"
+            },
+            "AWS CloudTrail must be enabled with multi-region option": {
+                "count": 4,
+                "severity": "High"
+            },
+            "Ensure a log metric filter and alarm exist for changes to network gateways": {
+                "count": 4,
+                "severity": "High"
+            },
+            "Ensure a log metric filter and alarm exist for changes to Network Access Control Lists (NACL)": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for S3 bucket policy changes": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Route53 resolver Query Logging.": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for security group changes": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Enable Audit Manager": {
+                "count": 4,
+                "severity": "High"
+            },
+            "Use AWS Managed Database Services (DB)": {
+                "count": 4,
+                "severity": "High"
+            },
+            "Default security groups should not have any in-bound or outbound rule present": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for CloudTrail configuration changes": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for IAM policy changes": {
+                "count": 4,
+                "severity": "Medium"
+            },
+            "Enable CloudWatch logs to record API logs of API Gateway Stages": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for unauthorized API calls": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for usage of root user": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Unassociated Elastic IP Addresses.": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for AWS Config configuration changes": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Enable Key Rotation for KMS customer master key": {
+                "count": 4,
+                "severity": "Medium"
+            },
+            "Ensure a log metric filter and alarm exist for AWS Management Console authentication failures": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for route table changes": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Encrypt CloudTrail logs at rest using SSE-KMS.": {
+                "count": 4,
+                "severity": "Medium"
+            },
+            "Configure a NAT Gateway": {
+                "count": 4,
+                "severity": "Medium"
+            },
+            "Ensure a log metric filter and alarm exist for disabling or scheduled deletion of customer managed keys": {
+                "count": 4,
+                "severity": "Medium"
+            },
+            "Ensure a log metric filter and alarm exist for Management Console sign-in without MFA.": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for VPC changes.": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure Credentials (with Second Activated AccessKey) Unused for 90 Days or Greater Are Disabled": {
+                "count": 3,
+                "severity": "High"
+            },
+            "Enable Amazon RDS Enhanced Monitoring": {
+                "count": 3,
+                "severity": "High"
+            },
+            "Ensure There Is Only One Active Access Key Available for Any Single IAM User": {
+                "count": 3,
+                "severity": "Medium"
+            },
+            "Use IAM Managed Policies": {
+                "count": 3,
+                "severity": "Medium"
+            },
+            "Encrypt s3 logging for CodeBuild": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Check for unassociated Network Interfaces": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Enable Amazon Detective": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Enable API Gateway Stage Metrics": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "CloudTrail Public Buckets": {
+                "count": 2,
+                "severity": "Critical"
+            },
+            "Ensure Amazon S3 Buckets are Privately Configured with Block Public Access": {
+                "count": 2,
+                "severity": "Critical"
+            },
+            "Protect API Gateway stages with WAF WACL": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Enable Amazon Inspector for AWS Lambda function scanning": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Enable CloudWatch logging for RDS databases ": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Use AWS Managed Fargate": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Ensure a Support Role Has Been Created to Manage Incidents with AWS Support": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Enable Amazon Inspector": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Enable Deletion Protection for RDS Instances": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Optimizing API Performance with Amazon API Gateway Stage Caching": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Enable Custom access logging on API Gateway Stages": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Use Global Accelarator": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Avoid using default VPCs": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Enable TTL for DynamoDB tables": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Implement RDS read replica": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Log CloudTrail Management Events for Improved Visibility and Auditability": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Ensure Kerberos and Active Directory is implemented for Enhanced RDS Security": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Enable RDS Event Notification.": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Enable AWS Signer": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Implement RDS Instance Multi-AZ": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Enable CloudTrail for Organization-wide Logging": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Multiple  multi-regional trails found": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Implement Glue Data Catalog Resource Policy": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Amazon Macie is in use.": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Use IAM Authentication for RDS DBs": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Password Policies for IAM Users Should Have Strong Configurations": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Ensure IAM password policy is set to expire passwords within 90 days or less": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Enable Amazon Inspector for ECR scanning": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Static website hosting is disabled on S3 buckets": {
+                "count": 2,
+                "severity": "High"
+            },
+            "AWS RDS databases are encrypted using KMS Customer Managed Keys.": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Enable Amazon Inspector for EC2 scanning": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Enable DynamoDB table point-in-time recovery.": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Ensure Deactivation of Auto-Scaling for DynamoDB Tables": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Enable API Key required check on a Method Requests": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Enable default encryption for new EBS volumes.": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Use Resiliency Hub": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Enable API Gateway Caching": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Back up DynamoDB tables": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Ensure IAM Password Policy Requires Minimum Length of 14 or Greater": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Protect Route 53 hosted zones with AWS Shield Advanced": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "CloudTrail Bucket MFA Delete Enabled": {
+                "count": 1,
+                "severity": "High"
+            },
+            "Identify and Secure S3 Buckets ACLs with FULL_CONTROL, READ, or READ_ACP Permissions to Public or ALL USERS": {
+                "count": 1,
+                "severity": "Critical"
+            },
+            "S3 Bucket Policy Should Not Allow Get Actions from All Principals": {
+                "count": 1,
+                "severity": "Critical"
+            },
+            "Address Security Hub High Critical Findings": {
+                "count": 1,
+                "severity": "Critical"
+            },
+            "S3 Bucket Should Not Allow Get Actions from All Principals Without a Condition": {
+                "count": 1,
+                "severity": "Critical"
+            },
+            "Use EBS Optimized EC2 instances": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Restrict access to WSDCOM-RPC port (tcp135)": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Restrict DMS Replication Instance Public Access": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Configure Glue Data Catalog password encryption": {
+                "count": 1,
+                "severity": "High"
+            },
+            "Restrict Lambda Functions to avoid Admin Privileges for Security": {
+                "count": 1,
+                "severity": "High"
+            },
+            "Ensure that the API Endpoint type in API Gateway is set to Private and is not exposed to the public internet": {
+                "count": 1,
+                "severity": "High"
+            },
+            "Glue Data Catalog Encryption At Rest": {
+                "count": 1,
+                "severity": "High"
+            },
+            "Restrict access to SMB port (tcp445)": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "CloudFront Viewer Protocol Policy.": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Protect CloudFront Distributions protected with AWS Shield Advanced": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Enable S3 bucket access logging on the CloudTrail S3 bucket.": {
+                "count": 1,
+                "severity": "High"
+            },
+            "Security Hub is enabled": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Amazon S3 Protection in Amazon GuardDuty.": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "CloudFront Integrated With WAF": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Enable ECR repository scan-on-push": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Multiple  CloudTrail trails found": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "CloudFront Priceclass_all Configuration Check": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Ensure CloudFront is in use and its distribution status is enabled": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Restrict access to MSSQL port (tcp1433)": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Ensure the AWS ACM has no unused certificates": {
+                "count": 1,
+                "severity": "Low"
+            },
+            "AWS CloudFront distribution with access logging is enabled": {
+                "count": 1,
+                "severity": "Low"
+            },
+            "Define Lifecycle policy for Amazon ECR image repository": {
+                "count": 1,
+                "severity": "Low"
+            },
+            "AWS CloudFront web distribution with geo restriction is enabled": {
+                "count": 1,
+                "severity": "Low"
+            },
+            "Enable CIS AWS Foundations Benchmark in Security Hub": {
+                "count": 1,
+                "severity": "Low"
+            },
+            "Enable AWS foundational Security Best Practices compliance standard in Security Hub.": {
+                "count": 1,
+                "severity": "Low"
+            },
+            "Configure DMS for Multi-AZ deployment": {
+                "count": 1,
+                "severity": "Low"
+            },
+            "Ensure CloudTrail trails are integrated with Amazon CloudWatch Logs": {
+                "count": 1,
+                "severity": "Low"
+            }
         },
-        "timestamp": "2024-10-03 22:09:01 PDT"
+        "timestamp": "2024-10-08 22:53:25 PDT"
     },
     {
-        "filename": "generated_well_architected_findings_old.csv",
-        "total_findings": 5,
-        "pillar_counts": {
-            "security": 2,
-            "sustainability": 2,
-            "costOptimization": 1
+        "filename": "Customer_Name_(1293842)_DAY2_Well_Architected_Review___Findings_Report___Payless_Scan_Non_Prod_June_2024_08_Jul_24_16_00_14.csv",
+        "total_findings": 4687,
+        "failed_findings": 1750,
+        "failed_pillar_counts": {
+            "security": 952,
+            "reliability": 268,
+            "costOptimization": 229,
+            "sustainability": 169,
+            "operationalExcellence": 97,
+            "performance": 35
         },
-        "severity_counts": {
-            "Informational": 3,
-            "Low": 2
+        "failed_severity_counts": {
+            "Low": 697,
+            "Medium": 678,
+            "High": 354,
+            "Critical": 21
         },
-        "check_title_counts": {
-            "Unused EBS volumes must be removed": 1,
-            "Ensure AWS IAM Policies Do Not Grant Assume Role Permission": 1,
-            "Check for unassociated Network Interfaces": 1,
-            "Unused Amazon Machine Images (AMIs) must be removed": 1,
-            "S3 Bucket Should Not Allow List Actions": 1
+        "failed_check_title_counts": {
+            "CloudWatch Logs Retention Configuration": {
+                "count": 156,
+                "severity": "Medium"
+            },
+            "Unused Amazon Machine Images (AMIs) must be removed.": {
+                "count": 124,
+                "severity": "Low"
+            },
+            "S3 bucket should have server access logging enabled.": {
+                "count": 98,
+                "severity": "Medium"
+            },
+            "Ensure AWS IAM Policies Allow Only the Required Privileges for Each Role": {
+                "count": 83,
+                "severity": "High"
+            },
+            "Check for EBS Old Snapshots older than 30 days.": {
+                "count": 70,
+                "severity": "Low"
+            },
+            "S3 object versioning provides an extra layer of data protection and/ or data retention, versioning enables you to recover and preserve deleted objects from S3 bucket. This check verifies if versioning is enabled for your S3 buckets.": {
+                "count": 66,
+                "severity": "Low"
+            },
+            "Restrict security groups with all outbound traffic open to the public": {
+                "count": 55,
+                "severity": "Medium"
+            },
+            "Detect and Manage Configuration Drift in CloudFormation Stacks": {
+                "count": 53,
+                "severity": "Low"
+            },
+            "Ensure MFA Delete is Enabled on S3 Buckets": {
+                "count": 49,
+                "severity": "Low"
+            },
+            "S3 bucket should allow only HTTPS requests.": {
+                "count": 47,
+                "severity": "Medium"
+            },
+            "Enable S3 bucket lifecycle policies": {
+                "count": 41,
+                "severity": "Low"
+            },
+            "Secure Lambda Execution with Virtual Private Cloud (VPC) for Isolation": {
+                "count": 40,
+                "severity": "Low"
+            },
+            "SNS Topic Server Side Encryption (SSE).": {
+                "count": 37,
+                "severity": "High"
+            },
+            "S3 Bucket Policy not Configured.": {
+                "count": 36,
+                "severity": "Medium"
+            },
+            "Security Groups accept global traffic only from ports 80 and 443": {
+                "count": 32,
+                "severity": "High"
+            },
+            "Invocation Error Monitoring for Functions": {
+                "count": 29,
+                "severity": "Low"
+            },
+            "Outdated EC2 AMIs": {
+                "count": 28,
+                "severity": "Low"
+            },
+            "Enforce Customer-Managed Key Encryption for Lambda Environment Variables": {
+                "count": 26,
+                "severity": "High"
+            },
+            "Timeout Error Monitoring for Functions.": {
+                "count": 25,
+                "severity": "Low"
+            },
+            "Ensure Provisioned IOPS volumes have been attached to instances for optimal performance efficiency": {
+                "count": 23,
+                "severity": "Low"
+            },
+            "Enable EC2 Instances backup": {
+                "count": 22,
+                "severity": "Medium"
+            },
+            "Restrict access to remote server ports (tcp3389 and tcp22)": {
+                "count": 22,
+                "severity": "High"
+            },
+            "Delete Unused Lambda Functions": {
+                "count": 21,
+                "severity": "Low"
+            },
+            "Enable EBS backup": {
+                "count": 21,
+                "severity": "Medium"
+            },
+            "Instance in autoscaling group": {
+                "count": 18,
+                "severity": "Low"
+            },
+            "EBS volumes must be encrypted.": {
+                "count": 17,
+                "severity": "Medium"
+            },
+            "EC2 IMDSv2 enabled": {
+                "count": 15,
+                "severity": "Medium"
+            },
+            "Secrets Manager Secrets Should Have Automatic Rotation Enabled": {
+                "count": 13,
+                "severity": "Critical"
+            },
+            "Restrict access to RDP port (tcp3389)": {
+                "count": 12,
+                "severity": "High"
+            },
+            "Ensure Public IP Address Assignment for subnets is disabled": {
+                "count": 12,
+                "severity": "Medium"
+            },
+            "Restrict external principal access in Resource Access Manager": {
+                "count": 11,
+                "severity": "Medium"
+            },
+            "Enable Access logs when using ELBv2.": {
+                "count": 10,
+                "severity": "High"
+            },
+            "Enable Glue Crawler security configuration to encrypt CloudWatch logs": {
+                "count": 10,
+                "severity": "High"
+            },
+            "Use CloudWatch Dashboards": {
+                "count": 10,
+                "severity": "High"
+            },
+            "Unused IAM Credentials Should Be Removed": {
+                "count": 10,
+                "severity": "Medium"
+            },
+            "Successful SSM association": {
+                "count": 10,
+                "severity": "Low"
+            },
+            "Use Linux-Powered EC2 Instances": {
+                "count": 10,
+                "severity": "Low"
+            },
+            "Rotate Old Secrets": {
+                "count": 9,
+                "severity": "Medium"
+            },
+            "Ensure IAM Users Receive Permissions Only Through Groups": {
+                "count": 9,
+                "severity": "Medium"
+            },
+            "Enable Flow Logs for VPC Subnets": {
+                "count": 9,
+                "severity": "Medium"
+            },
+            "Use AWS Managed kubernetes Service (EKS)": {
+                "count": 8,
+                "severity": "High"
+            },
+            "Ensure elastic load balancers are using secure listeners.": {
+                "count": 8,
+                "severity": "High"
+            },
+            "Use AWS Managed Container Service (ECS)": {
+                "count": 8,
+                "severity": "High"
+            },
+            "IAM Users Should Have Multi-Factor Authentication (MFA) Enabled": {
+                "count": 8,
+                "severity": "Medium"
+            },
+            "Encrypt Amazon Machine Images (AMIs)": {
+                "count": 7,
+                "severity": "High"
+            },
+            "EBS snapshots must be encrypted.": {
+                "count": 7,
+                "severity": "Medium"
+            },
+            "Identify security groups which allow all traffic from the internet, the best practice is to exercise principle of least privilege": {
+                "count": 7,
+                "severity": "High"
+            },
+            "Ensure Amazon Lambda Functions Do Not Share the Same AWS IAM Execution Role": {
+                "count": 7,
+                "severity": "High"
+            },
+            "SNS topics should have active subscriptions": {
+                "count": 7,
+                "severity": "Medium"
+            },
+            "Ensure Credentials (with First Activated AccessKey) Unused for 90 Days or Greater Are Disabled": {
+                "count": 7,
+                "severity": "High"
+            },
+            "Enable CloudWatch logging for CodeBuild": {
+                "count": 6,
+                "severity": "Medium"
+            },
+            "Protect Elastic IPs with Shield Advanced": {
+                "count": 6,
+                "severity": "Medium"
+            },
+            "Ensure the Instance profile is attached to EC2 Instances": {
+                "count": 6,
+                "severity": "Medium"
+            },
+            "Use Amazon Data Lifecycle Manager": {
+                "count": 6,
+                "severity": "Medium"
+            },
+            "Check for public SNS Topics": {
+                "count": 6,
+                "severity": "High"
+            },
+            "EC2 Instances must not be associated with Elastic or Public IP Address.": {
+                "count": 5,
+                "severity": "Medium"
+            },
+            "Protect ELBv2s with AWS Shield Advanced": {
+                "count": 5,
+                "severity": "Medium"
+            },
+            "Ensure TLS 1.2 enforcement for all secure listeners": {
+                "count": 5,
+                "severity": "Medium"
+            },
+            "Enable ELBv2 Elastic Load Balancing Deletion Protection": {
+                "count": 5,
+                "severity": "Medium"
+            },
+            "Enable ELBv2 invalid HTTP header drop": {
+                "count": 5,
+                "severity": "Medium"
+            },
+            "Enable Amazon CloudWatch Internet Monitor": {
+                "count": 4,
+                "severity": "High"
+            },
+            "AWS CloudTrail must be enabled with multi-region option": {
+                "count": 4,
+                "severity": "High"
+            },
+            "Ensure a log metric filter and alarm exist for changes to network gateways": {
+                "count": 4,
+                "severity": "High"
+            },
+            "Ensure a log metric filter and alarm exist for changes to Network Access Control Lists (NACL)": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for S3 bucket policy changes": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Route53 resolver Query Logging.": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for security group changes": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Enable Audit Manager": {
+                "count": 4,
+                "severity": "High"
+            },
+            "Use AWS Managed Database Services (DB)": {
+                "count": 4,
+                "severity": "High"
+            },
+            "Default security groups should not have any in-bound or outbound rule present": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for CloudTrail configuration changes": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for IAM policy changes": {
+                "count": 4,
+                "severity": "Medium"
+            },
+            "Enable CloudWatch logs to record API logs of API Gateway Stages": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for unauthorized API calls": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for usage of root user": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Unassociated Elastic IP Addresses.": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for AWS Config configuration changes": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Enable Key Rotation for KMS customer master key": {
+                "count": 4,
+                "severity": "Medium"
+            },
+            "Ensure a log metric filter and alarm exist for AWS Management Console authentication failures": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for route table changes": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Encrypt CloudTrail logs at rest using SSE-KMS.": {
+                "count": 4,
+                "severity": "Medium"
+            },
+            "Configure a NAT Gateway": {
+                "count": 4,
+                "severity": "Medium"
+            },
+            "Ensure a log metric filter and alarm exist for disabling or scheduled deletion of customer managed keys": {
+                "count": 4,
+                "severity": "Medium"
+            },
+            "Ensure a log metric filter and alarm exist for Management Console sign-in without MFA.": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure a log metric filter and alarm exist for VPC changes.": {
+                "count": 4,
+                "severity": "Low"
+            },
+            "Ensure Credentials (with Second Activated AccessKey) Unused for 90 Days or Greater Are Disabled": {
+                "count": 3,
+                "severity": "High"
+            },
+            "Enable Amazon RDS Enhanced Monitoring": {
+                "count": 3,
+                "severity": "High"
+            },
+            "Ensure There Is Only One Active Access Key Available for Any Single IAM User": {
+                "count": 3,
+                "severity": "Medium"
+            },
+            "Use IAM Managed Policies": {
+                "count": 3,
+                "severity": "Medium"
+            },
+            "Encrypt s3 logging for CodeBuild": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Check for unassociated Network Interfaces": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Enable Amazon Detective": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Enable API Gateway Stage Metrics": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "CloudTrail Public Buckets": {
+                "count": 2,
+                "severity": "Critical"
+            },
+            "Ensure Amazon S3 Buckets are Privately Configured with Block Public Access": {
+                "count": 2,
+                "severity": "Critical"
+            },
+            "Protect API Gateway stages with WAF WACL": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Enable Amazon Inspector for AWS Lambda function scanning": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Enable CloudWatch logging for RDS databases ": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Use AWS Managed Fargate": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Ensure a Support Role Has Been Created to Manage Incidents with AWS Support": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Enable Amazon Inspector": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Enable Deletion Protection for RDS Instances": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Optimizing API Performance with Amazon API Gateway Stage Caching": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Enable Custom access logging on API Gateway Stages": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Use Global Accelarator": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Avoid using default VPCs": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Enable TTL for DynamoDB tables": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Implement RDS read replica": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Log CloudTrail Management Events for Improved Visibility and Auditability": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Ensure Kerberos and Active Directory is implemented for Enhanced RDS Security": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Enable RDS Event Notification.": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Enable AWS Signer": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Implement RDS Instance Multi-AZ": {
+                "count": 2,
+                "severity": "Low"
+            },
+            "Enable CloudTrail for Organization-wide Logging": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Multiple  multi-regional trails found": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Implement Glue Data Catalog Resource Policy": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Amazon Macie is in use.": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Use IAM Authentication for RDS DBs": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Password Policies for IAM Users Should Have Strong Configurations": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Ensure IAM password policy is set to expire passwords within 90 days or less": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Enable Amazon Inspector for ECR scanning": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Static website hosting is disabled on S3 buckets": {
+                "count": 2,
+                "severity": "High"
+            },
+            "AWS RDS databases are encrypted using KMS Customer Managed Keys.": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Enable Amazon Inspector for EC2 scanning": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Enable DynamoDB table point-in-time recovery.": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Ensure Deactivation of Auto-Scaling for DynamoDB Tables": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Enable API Key required check on a Method Requests": {
+                "count": 2,
+                "severity": "High"
+            },
+            "Enable default encryption for new EBS volumes.": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Use Resiliency Hub": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Enable API Gateway Caching": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Back up DynamoDB tables": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Ensure IAM Password Policy Requires Minimum Length of 14 or Greater": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "Protect Route 53 hosted zones with AWS Shield Advanced": {
+                "count": 2,
+                "severity": "Medium"
+            },
+            "CloudTrail Bucket MFA Delete Enabled": {
+                "count": 1,
+                "severity": "High"
+            },
+            "Identify and Secure S3 Buckets ACLs with FULL_CONTROL, READ, or READ_ACP Permissions to Public or ALL USERS": {
+                "count": 1,
+                "severity": "Critical"
+            },
+            "S3 Bucket Policy Should Not Allow Get Actions from All Principals": {
+                "count": 1,
+                "severity": "Critical"
+            },
+            "Address Security Hub High Critical Findings": {
+                "count": 1,
+                "severity": "Critical"
+            },
+            "S3 Bucket Should Not Allow Get Actions from All Principals Without a Condition": {
+                "count": 1,
+                "severity": "Critical"
+            },
+            "Use EBS Optimized EC2 instances": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Restrict access to WSDCOM-RPC port (tcp135)": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Restrict DMS Replication Instance Public Access": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Configure Glue Data Catalog password encryption": {
+                "count": 1,
+                "severity": "High"
+            },
+            "Restrict Lambda Functions to avoid Admin Privileges for Security": {
+                "count": 1,
+                "severity": "High"
+            },
+            "Ensure that the API Endpoint type in API Gateway is set to Private and is not exposed to the public internet": {
+                "count": 1,
+                "severity": "High"
+            },
+            "Glue Data Catalog Encryption At Rest": {
+                "count": 1,
+                "severity": "High"
+            },
+            "Restrict access to SMB port (tcp445)": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "CloudFront Viewer Protocol Policy.": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Protect CloudFront Distributions protected with AWS Shield Advanced": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Enable S3 bucket access logging on the CloudTrail S3 bucket.": {
+                "count": 1,
+                "severity": "High"
+            },
+            "Security Hub is enabled": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Amazon S3 Protection in Amazon GuardDuty.": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "CloudFront Integrated With WAF": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Enable ECR repository scan-on-push": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Multiple  CloudTrail trails found": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "CloudFront Priceclass_all Configuration Check": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Ensure CloudFront is in use and its distribution status is enabled": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Restrict access to MSSQL port (tcp1433)": {
+                "count": 1,
+                "severity": "Medium"
+            },
+            "Ensure the AWS ACM has no unused certificates": {
+                "count": 1,
+                "severity": "Low"
+            },
+            "AWS CloudFront distribution with access logging is enabled": {
+                "count": 1,
+                "severity": "Low"
+            },
+            "Define Lifecycle policy for Amazon ECR image repository": {
+                "count": 1,
+                "severity": "Low"
+            },
+            "AWS CloudFront web distribution with geo restriction is enabled": {
+                "count": 1,
+                "severity": "Low"
+            },
+            "Enable CIS AWS Foundations Benchmark in Security Hub": {
+                "count": 1,
+                "severity": "Low"
+            },
+            "Enable AWS foundational Security Best Practices compliance standard in Security Hub.": {
+                "count": 1,
+                "severity": "Low"
+            },
+            "Configure DMS for Multi-AZ deployment": {
+                "count": 1,
+                "severity": "Low"
+            },
+            "Ensure CloudTrail trails are integrated with Amazon CloudWatch Logs": {
+                "count": 1,
+                "severity": "Low"
+            }
         },
-        "timestamp": "2024-10-03 22:09:01 PDT"
+        "timestamp": "2024-10-08 22:53:25 PDT"
     }
 ]
